@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_dialog"
+    android:background="@drawable/bg_dialog_sheet"
     android:orientation="vertical"
-    android:padding="18dp">
+    android:paddingHorizontal="18dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="18dp">
+
+    <!-- Top Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_handle" />
 
     <!-- Header Row -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Title & Icon -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/layoutHeaderActions"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -29,8 +42,8 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_money"
+                    android:contentDescription="Keranjang"
+                    android:src="@drawable/ic_cart"
                     app:tint="@color/gold" />
             </FrameLayout>
 
@@ -44,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
-                    android:text="Kalkulator &amp; Keranjang"
+                    android:text="Keranjang Belanja"
                     android:textColor="@color/sogan"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -53,27 +66,54 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:text="Estimasi biaya &amp; batas beban kabin pesawat"
+                    android:text="Estimasi biaya &amp; beban bagasi pesawat"
                     android:textColor="@color/charcoal_secondary"
                     android:textSize="10sp" />
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/btnClearCart"
+        <!-- Header Actions: Kosongkan & Close -->
+        <LinearLayout
+            android:id="@+id/layoutHeaderActions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/bg_circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp"
-            android:text="Kosongkan"
-            android:textColor="@color/terracotta"
-            android:textSize="10sp"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnClearCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:text="Kosongkan"
+                android:textColor="@color/terracotta"
+                android:textSize="10.5sp"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:id="@+id/btnDismissCalcTop"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_circle_button"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Tutup"
+                    android:src="@drawable/ic_clear"
+                    app:tint="@color/charcoal" />
+            </FrameLayout>
+        </LinearLayout>
     </RelativeLayout>
 
     <View
@@ -83,123 +123,224 @@
         android:layout_marginBottom="10dp"
         android:background="@color/divider_color" />
 
-    <!-- Dynamic Items Scroll Container -->
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:maxHeight="320dp">
-
-        <LinearLayout
-            android:id="@+id/layoutCalcItemsContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </androidx.core.widget.NestedScrollView>
-
-    <!-- Calculation Summary Card -->
+    <!-- EMPTY STATE (Visible when cart is empty) -->
     <LinearLayout
+        android:id="@+id/layoutCalcEmpty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_quote_box"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:paddingVertical="24dp"
+        android:visibility="gone"
+        tools:visibility="gone">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_circle_icon">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:text="Estimasi Total Belanja:"
-                android:textColor="@color/charcoal"
-                android:textSize="11.5sp" />
-
-            <TextView
-                android:id="@+id/tvCalcTotalPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="Rp 0"
-                android:textColor="@color/terracotta"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:text="Estimasi Berat Total:"
-                android:textColor="@color/charcoal"
-                android:textSize="11.5sp" />
-
-            <TextView
-                android:id="@+id/tvCalcTotalWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="0.0 kg"
-                android:textColor="@color/sogan"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginVertical="6dp"
-            android:background="@color/divider_color" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:contentDescription="Keranjang Kosong"
+                android:src="@drawable/ic_cart"
+                app:tint="@color/sogan" />
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/tvCalcStatus"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="✈️ Aman untuk Bagasi Kabin (Maks 7 kg)"
+            android:layout_marginTop="12dp"
+            android:text="Keranjang Masih Kosong"
             android:textColor="@color/sogan"
-            android:textSize="10.5sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <!-- Action Buttons Row -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCalcAddMore"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_marginEnd="6dp"
-            android:layout_weight="1"
-            android:text="+ Tambah Item"
-            android:textColor="@color/sogan"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            app:cornerRadius="10dp"
-            app:strokeColor="@color/sogan" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:maxWidth="260dp"
+            android:text="Pilih oleh-oleh khas Jogja dan tambahkan ke keranjang untuk menghitung estimasi biaya dan berat bagasi."
+            android:textColor="@color/charcoal_secondary"
+            android:textSize="11sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDismissCalc"
-            android:layout_width="0dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
+            android:id="@+id/btnEmptyStartShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="14dp"
             android:backgroundTint="@color/sogan"
-            android:text="Selesai"
-            android:textColor="@color/gold"
+            android:text="Mulai Belanja"
+            android:textColor="@color/gold_light"
             android:textSize="11sp"
             android:textStyle="bold"
             app:cornerRadius="10dp" />
+    </LinearLayout>
+
+    <!-- FILLED STATE (Visible when cart has items) -->
+    <LinearLayout
+        android:id="@+id/layoutCalcFilled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <!-- Scrollable Cart Items Container -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:maxHeight="260dp">
+
+            <LinearLayout
+                android:id="@+id/layoutCalcItemsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Calculation Summary Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="1dp"
+            app:strokeColor="@color/divider_color"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <!-- Row 1: Total Price -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Estimasi Total Belanja:"
+                        android:textColor="@color/charcoal"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvCalcTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/terracotta"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="Rp 75.000" />
+                </LinearLayout>
+
+                <!-- Row 2: Total Items & Weight -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvCalcTotalItems"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/charcoal_secondary"
+                        android:textSize="11sp"
+                        tools:text="Total: 3 item" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Estimasi Berat: "
+                            android:textColor="@color/charcoal_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvCalcTotalWeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/sogan"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:text="1.2 kg" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@color/divider_color" />
+
+                <!-- Flight Baggage Safety Status -->
+                <TextView
+                    android:id="@+id/tvCalcStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_shelf"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp"
+                    android:textColor="@color/sogan"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold"
+                    tools:text="✈️ Aman untuk Bagasi Kabin (Maks 7 kg)" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Action Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCalcAddMore"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:text="+ Tambah Item"
+                android:textColor="@color/sogan"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp"
+                app:strokeColor="@color/sogan"
+                app:strokeWidth="1.2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDismissCalc"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/sogan"
+                android:text="Selesai Belanja"
+                android:textColor="@color/gold_light"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

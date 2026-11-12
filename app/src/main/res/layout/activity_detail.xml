@@ -498,73 +498,99 @@
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
-        <!-- Bottom Action Bar matching Figma exactly -->
+        <!-- Bottom Action Bar with Share, Route, and Add To Cart -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:elevation="8dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="14dp"
             android:paddingVertical="10dp">
 
-            <!-- Bagikan Button -->
-            <LinearLayout
+            <!-- Bagikan Icon Button -->
+            <FrameLayout
                 android:id="@+id/btnShare"
-                android:layout_width="105dp"
+                android:layout_width="42dp"
                 android:layout_height="42dp"
+                android:background="@drawable/bg_btn_share"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/btn_share"
+                    android:src="@drawable/ic_share"
+                    app:tint="@color/charcoal" />
+            </FrameLayout>
+
+            <!-- Rute Sentra Belanja Button -->
+            <LinearLayout
+                android:id="@+id/btnSaveRoute"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_marginStart="8dp"
                 android:background="@drawable/bg_btn_share"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp">
 
                 <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
-                    android:contentDescription="@string/btn_share"
-                    android:src="@drawable/ic_share"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:contentDescription="@string/btn_save_route"
+                    android:src="@drawable/ic_map_folded"
                     app:tint="@color/charcoal" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:text="@string/btn_share"
+                    android:text="Rute Sentra"
                     android:textColor="@color/charcoal"
-                    android:textSize="11.5sp"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Simpan Info Rute Belanja Button -->
+            <!-- Tambah ke Keranjang Primary Button -->
             <LinearLayout
-                android:id="@+id/btnSaveRoute"
+                android:id="@+id/btnAddToCartDetail"
                 android:layout_width="0dp"
                 android:layout_height="42dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_btn_route"
+                android:background="@drawable/bg_btn_cart_primary"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp">
 
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:contentDescription="@string/btn_save_route"
-                    android:src="@drawable/ic_map_folded"
-                    app:tint="@color/white" />
+                    android:contentDescription="Keranjang"
+                    android:src="@drawable/ic_cart"
+                    app:tint="@color/gold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:text="@string/btn_save_route"
+                    android:text="+ Keranjang"
                     android:textColor="@color/white"
-                    android:textSize="11.5sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <!-- Floating Add to Cart Notification -->
+    <include layout="@layout/layout_cart_notification" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

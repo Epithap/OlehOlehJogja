@@ -1,77 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="6dp"
-    android:background="@drawable/bg_rounded_box"
-    android:padding="10dp">
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    app:strokeColor="@color/divider_color"
+    app:strokeWidth="1dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@id/layoutQuantityControls"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvCalcItemName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/sogan"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvCalcItemUnit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/charcoal_secondary"
-            android:textSize="10sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layoutQuantityControls"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
-        <TextView
-            android:id="@+id/btnCalcMinus"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:background="@drawable/bg_circle_button"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="-"
-            android:textColor="@color/sogan"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+        <!-- Souvenir Thumbnail Image -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCalcThumb"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Small"
+            tools:src="@drawable/img_bakpia" />
 
-        <TextView
-            android:id="@+id/tvCalcCount"
-            android:layout_width="28dp"
+        <!-- Details -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/charcoal"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/btnCalcPlus"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:background="@drawable/bg_circle_rank"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="+"
-            android:textColor="@color/sogan"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvCalcItemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/sogan"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                tools:text="Bakpia Pathok" />
+
+            <TextView
+                android:id="@+id/tvCalcItemUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:textColor="@color/charcoal_secondary"
+                android:textSize="10sp"
+                tools:text="~450g • Rp 25.000 / pcs" />
+
+            <TextView
+                android:id="@+id/tvCalcItemSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/terracotta"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                tools:text="Rp 50.000" />
+        </LinearLayout>
+
+        <!-- Quantity Stepper Controls -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Minus Button -->
+            <TextView
+                android:id="@+id/btnCalcMinus"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/bg_circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="−"
+                android:textColor="@color/sogan"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- Count -->
+            <TextView
+                android:id="@+id/tvCalcCount"
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/charcoal"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                tools:text="2" />
+
+            <!-- Plus Button -->
+            <TextView
+                android:id="@+id/btnCalcPlus"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/bg_circle_rank"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/sogan"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- Delete / Remove Button -->
+            <FrameLayout
+                android:id="@+id/btnCalcDelete"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_circle_button"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Hapus item"
+                    android:src="@drawable/ic_delete"
+                    app:tint="@color/terracotta" />
+            </FrameLayout>
+        </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

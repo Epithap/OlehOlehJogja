@@ -218,6 +218,49 @@ class DetailActivity : AppCompatActivity() {
             clipboard.setPrimaryClip(clip)
             Toast.makeText(this, "Lokasi belanja berhasil disalin!", Toast.LENGTH_SHORT).show()
         }
+
+        findViewById<View>(R.id.btnAddToCartDetail).setOnClickListener {
+            CartManager.addItem(souvenir.id)
+            showAddToCartNotice()
+        }
+    }
+
+    private var cartNotificationRunnable: Runnable? = null
+
+    private fun showAddToCartNotice() {
+        val card = findViewById<View>(R.id.cardCartNotification) ?: return
+        val ivThumb = findViewById<ImageView>(R.id.ivToastThumb)
+        val tvTitle = findViewById<TextView>(R.id.tvToastTitle)
+        val tvSubtitle = findViewById<TextView>(R.id.tvToastSubtitle)
+        val btnOpen = findViewById<View>(R.id.btnToastOpenCart)
+
+        ivThumb?.setImageResource(souvenir.imageResId)
+        tvTitle?.text = "${souvenir.name} Masuk Keranjang!"
+        val totalCount = CartManager.getTotalItemCount()
+        val currentCount = CartManager.getItemCount(souvenir.id)
+        tvSubtitle?.text = "$currentCount pcs dipilih • Total $totalCount item di keranjang"
+
+        btnOpen?.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                putExtra("open_cart", true)
+            }
+            startActivity(intent)
+            finish()
+        }
+
+        cartNotificationRunnable?.let { card.removeCallbacks(it) }
+        card.alpha = 0f
+        card.visibility = View.VISIBLE
+        card.animate().alpha(1f).setDuration(220).start()
+
+        val runnable = Runnable {
+            card.animate().alpha(0f).setDuration(250).withEndAction {
+                card.visibility = View.GONE
+            }.start()
+        }
+        cartNotificationRunnable = runnable
+        card.postDelayed(runnable, 3500)
     }
 
     private fun updateBookmarkIcon() {

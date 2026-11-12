@@ -165,20 +165,15 @@
                     android:visibility="gone"
                     tools:visibility="gone">
 
-                    <FrameLayout
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ivProfileAvatarHeader"
                         android:layout_width="44dp"
                         android:layout_height="44dp"
-                        android:background="@drawable/bg_avatar_profile">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="P"
-                            android:textColor="@color/sogan"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                    </FrameLayout>
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_profile_andhka"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                        app:strokeColor="@color/gold"
+                        app:strokeWidth="1.5dp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -189,7 +184,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Halo, Pelancong!"
+                            android:text="Halo, Andhika!"
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -198,7 +193,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Masuk untuk menyimpan oleh-oleh favoritmu"
+                            android:text="Pelancong Jogja • Pecinta Kuliner &amp; Budaya"
                             android:textColor="#CCFFFFFF"
                             android:textSize="10.5sp" />
                     </LinearLayout>
@@ -424,6 +419,7 @@
                     </FrameLayout>
 
                     <TextView
+                        android:id="@+id/tvEmptyTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
@@ -433,11 +429,12 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvEmptyDesc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:gravity="center"
-                        android:maxWidth="220dp"
+                        android:maxWidth="240dp"
                         android:text="@string/empty_desc"
                         android:textColor="@color/charcoal_secondary"
                         android:textSize="11.5sp" />
@@ -525,6 +522,26 @@
                                 android:textSize="8.5sp"
                                 android:textStyle="bold" />
 
+                            <!-- Quick Add to Cart button (Hero) -->
+                            <FrameLayout
+                                android:id="@+id/btnCartHero"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="10dp"
+                                android:background="@drawable/bg_circle_white"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Tambah ke keranjang"
+                                    android:src="@drawable/ic_cart"
+                                    app:tint="@color/sogan" />
+                            </FrameLayout>
+
                             <!-- Info text bottom -->
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -582,8 +599,6 @@
                             android:textColor="@color/charcoal_secondary"
                             android:textSize="10.5sp" />
                     </RelativeLayout>
-
-
 
                     <!-- Rank 2: Gudeg Kendil -->
                     <com.google.android.material.card.MaterialCardView
@@ -653,6 +668,24 @@
                                 android:textColor="@color/terracotta"
                                 android:textSize="10.5sp"
                                 android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:id="@+id/btnCartRank2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_circle_button"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Tambah ke keranjang"
+                                    android:src="@drawable/ic_cart"
+                                    app:tint="@color/sogan" />
+                            </FrameLayout>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -724,6 +757,24 @@
                                 android:textColor="@color/terracotta"
                                 android:textSize="10.5sp"
                                 android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:id="@+id/btnCartRank3"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_circle_button"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Tambah ke keranjang"
+                                    android:src="@drawable/ic_cart"
+                                    app:tint="@color/sogan" />
+                            </FrameLayout>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -795,6 +846,24 @@
                                 android:textColor="@color/terracotta"
                                 android:textSize="10.5sp"
                                 android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:id="@+id/btnCartRank4"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_circle_button"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Tambah ke keranjang"
+                                    android:src="@drawable/ic_cart"
+                                    app:tint="@color/sogan" />
+                            </FrameLayout>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -862,10 +931,28 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rp 20.000"
+                                android:text="Rp 22.000"
                                 android:textColor="@color/terracotta"
                                 android:textSize="10.5sp"
                                 android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:id="@+id/btnCartRank5"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginStart="8dp"
+                                android:background="@drawable/bg_circle_button"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="Tambah ke keranjang"
+                                    android:src="@drawable/ic_cart"
+                                    app:tint="@color/sogan" />
+                            </FrameLayout>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
@@ -888,26 +975,88 @@
                     android:paddingTop="14dp"
                     android:paddingBottom="24dp">
 
-                    <!-- Button Masuk / Daftar -->
-                    <LinearLayout
-                        android:id="@+id/btnLoginRegister"
+                    <!-- User Profile Card -->
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:background="@drawable/bg_btn_login"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:gravity="center">
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="1dp"
+                        app:strokeColor="@color/divider_color"
+                        app:strokeWidth="1dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Masuk / Daftar"
-                            android:textColor="@color/sogan"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="14dp">
 
-                    <!-- Stats Card: Tersimpan | Dikunjungi | Ulasan -->
+                            <!-- User Avatar Photo -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/ivProfileAvatarMain"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_profile_andhka"
+                                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                                app:strokeColor="@color/gold"
+                                app:strokeWidth="2dp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Andhika"
+                                        android:textColor="@color/sogan"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:background="@drawable/bg_badge_shelf"
+                                        android:paddingHorizontal="6dp"
+                                        android:paddingVertical="2dp"
+                                        android:text="Pelancong Aktif"
+                                        android:textColor="@color/sogan"
+                                        android:textSize="8.5sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="andhika@jogjatour.id"
+                                    android:textColor="@color/charcoal_secondary"
+                                    android:textSize="10.5sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Pecinta ragam kuliner &amp; budaya Jogja"
+                                    android:textColor="@color/charcoal"
+                                    android:textSize="10.5sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Stats Card: Tersimpan | Keranjang | Dikunjungi -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -915,7 +1064,8 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="1dp"
-                        app:strokeWidth="0dp">
+                        app:strokeColor="@color/divider_color"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -925,9 +1075,12 @@
 
                             <!-- Col 1: Tersimpan -->
                             <LinearLayout
+                                android:id="@+id/layoutStatSaved"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:gravity="center"
                                 android:orientation="vertical">
 
@@ -935,7 +1088,7 @@
                                     android:id="@+id/tvProfileStatSaved"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="12"
+                                    android:text="0"
                                     android:textColor="@color/sogan"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
@@ -955,7 +1108,42 @@
                                 android:layout_gravity="center_vertical"
                                 android:background="@color/divider_color" />
 
-                            <!-- Col 2: Dikunjungi -->
+                            <!-- Col 2: Keranjang Belanja -->
+                            <LinearLayout
+                                android:id="@+id/layoutStatCart"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tvProfileStatCart"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/terracotta"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Keranjang"
+                                    android:textColor="@color/charcoal_secondary"
+                                    android:textSize="10.5sp" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center_vertical"
+                                android:background="@color/divider_color" />
+
+                            <!-- Col 3: Dikunjungi -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -1001,7 +1189,8 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="1dp"
-                        app:strokeWidth="0dp">
+                        app:strokeColor="@color/divider_color"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1035,6 +1224,19 @@
                                     android:textColor="@color/charcoal"
                                     android:textSize="12sp" />
 
+                                <TextView
+                                    android:id="@+id/tvMenuSavedBadge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="6dp"
+                                    android:background="@drawable/bg_badge_shelf"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingVertical="2dp"
+                                    android:textColor="@color/sogan"
+                                    android:textSize="9.5sp"
+                                    android:textStyle="bold"
+                                    tools:text="0 item" />
+
                                 <ImageView
                                     android:layout_width="16dp"
                                     android:layout_height="16dp"
@@ -1049,7 +1251,61 @@
                                 android:layout_marginStart="44dp"
                                 android:background="@color/divider_color" />
 
-                            <!-- Item 2: Toko Terdekat -->
+                            <!-- Item 2: Keranjang Belanja & Kalkulator -->
+                            <LinearLayout
+                                android:id="@+id/menuCalculator"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingHorizontal="14dp">
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:contentDescription="Keranjang"
+                                    android:src="@drawable/ic_cart"
+                                    app:tint="@color/sogan" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_weight="1"
+                                    android:text="Keranjang &amp; Kalkulator Belanja"
+                                    android:textColor="@color/charcoal"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tvMenuCartBadge"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="6dp"
+                                    android:background="@drawable/bg_badge_shelf"
+                                    android:paddingHorizontal="8dp"
+                                    android:paddingVertical="2dp"
+                                    android:textColor="@color/terracotta"
+                                    android:textSize="9.5sp"
+                                    android:textStyle="bold"
+                                    tools:text="0 item" />
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/ic_chevron_right"
+                                    app:tint="@color/charcoal_secondary" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginStart="44dp"
+                                android:background="@color/divider_color" />
+
+                            <!-- Item 3: Toko Terdekat -->
                             <LinearLayout
                                 android:id="@+id/menuNearby"
                                 android:layout_width="match_parent"
@@ -1072,7 +1328,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="12dp"
                                     android:layout_weight="1"
-                                    android:text="Toko Terdekat"
+                                    android:text="Sentra Toko Terdekat"
                                     android:textColor="@color/charcoal"
                                     android:textSize="12sp" />
 
@@ -1090,7 +1346,7 @@
                                 android:layout_marginStart="44dp"
                                 android:background="@color/divider_color" />
 
-                            <!-- Item 3: Pilihan Populer -->
+                            <!-- Item 4: Pilihan Populer -->
                             <LinearLayout
                                 android:id="@+id/menuPopular"
                                 android:layout_width="match_parent"
@@ -1114,47 +1370,6 @@
                                     android:layout_marginStart="12dp"
                                     android:layout_weight="1"
                                     android:text="Pilihan Populer"
-                                    android:textColor="@color/charcoal"
-                                    android:textSize="12sp" />
-
-                                <ImageView
-                                    android:layout_width="16dp"
-                                    android:layout_height="16dp"
-                                    android:contentDescription="@string/app_name"
-                                    android:src="@drawable/ic_chevron_right"
-                                    app:tint="@color/charcoal_secondary" />
-                            </LinearLayout>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginStart="44dp"
-                                android:background="@color/divider_color" />
-
-                            <!-- Item 4: Kalkulator Belanja & Bagasi (FITUR BARU) -->
-                            <LinearLayout
-                                android:id="@+id/menuCalculator"
-                                android:layout_width="match_parent"
-                                android:layout_height="48dp"
-                                android:clickable="true"
-                                android:focusable="true"
-                                android:gravity="center_vertical"
-                                android:orientation="horizontal"
-                                android:paddingHorizontal="14dp">
-
-                                <ImageView
-                                    android:layout_width="18dp"
-                                    android:layout_height="18dp"
-                                    android:contentDescription="@string/app_name"
-                                    android:src="@drawable/ic_money"
-                                    app:tint="@color/sogan" />
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="12dp"
-                                    android:layout_weight="1"
-                                    android:text="Kalkulator Belanja &amp; Bagasi"
                                     android:textColor="@color/charcoal"
                                     android:textSize="12sp" />
 
@@ -1352,4 +1567,8 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <!-- Floating Add to Cart Notification -->
+    <include layout="@layout/layout_cart_notification" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

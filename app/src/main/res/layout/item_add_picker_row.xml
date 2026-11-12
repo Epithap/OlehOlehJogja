@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    app:strokeColor="@color/divider_color"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <!-- Souvenir Thumbnail Image -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPickerThumb"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Small"
+            tools:src="@drawable/img_bakpia" />
+
+        <!-- Details -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPickerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/sogan"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="Bakpia Pathok" />
+
+            <TextView
+                android:id="@+id/tvPickerCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:textColor="@color/charcoal_secondary"
+                android:textSize="10.5sp"
+                tools:text="Tahan 4-7 hari • Makanan Basah" />
+
+            <TextView
+                android:id="@+id/tvPickerPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/terracotta"
+                android:textSize="11.5sp"
+                android:textStyle="bold"
+                tools:text="Rp 25.000 • ~450g" />
+        </LinearLayout>
+
+        <!-- Stepper Controls -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Minus Button -->
+            <TextView
+                android:id="@+id/btnPickerMinus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_circle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="−"
+                android:textColor="@color/sogan"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Count -->
+            <TextView
+                android:id="@+id/tvPickerCount"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/charcoal"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="1" />
+
+            <!-- Plus Button -->
+            <TextView
+                android:id="@+id/btnPickerPlus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_circle_rank"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/sogan"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
