@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Header Row (Left-aligned) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_badge_cat">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/guide_title"
+                android:src="@drawable/ic_help"
+                app:tint="@color/gold" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="Pusat Bantuan Pelancong"
+                android:textColor="@color/sogan"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Panduan Praktis Belanja Oleh-Oleh Khas Jogja"
+                android:textColor="@color/charcoal_secondary"
+                android:textSize="10.5sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/divider_color" />
+
+    <!-- Scrollable Help Cards -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:maxHeight="380dp"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Card 1: Aturan Pesawat & Bagasi -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_box"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✈️  Aturan Bagasi &amp; Penerbangan"
+                    android:textColor="@color/sogan"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="• Gudeg Kendil Basah: Mengandung kuah santan >100ml, WAJIB masuk bagasi kargo terdaftar (tidak boleh di kabin).\n• Gudeg Kaleng &amp; Bakpia: 100% AMAN dibawa langsung ke dalam kabin pesawat.\n• Buah Segar (Salak Pondoh): Kemas dalam keranjang bambu berongga agar tidak lebam di bagasi."
+                    android:textColor="@color/charcoal"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Card 2: Panduan Daya Tahan -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_rounded_box"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏱️  Daya Tahan &amp; Penyimpanan"
+                    android:textColor="@color/sogan"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="• Makanan Basah (Jadah tempe, tiwul): Santap dalam 24-48 jam atau simpan di kulkas dan kukus kembali.\n• Bakpia Basah: Tahan 4-5 hari suhu ruang, tahan 10-14 hari di lemari es.\n• Makanan Kering &amp; Rempah (Yangko, peyek, wedang uwuh): Tahan 2 minggu hingga 1 tahun dalam wadah kedap udara."
+                    android:textColor="@color/charcoal"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Card 3: Tips Belanja Sentra -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_rounded_box"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💡  Tips Belanja di Sentra Asli"
+                    android:textColor="@color/sogan"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="• Beli langsung di Kampung Pathuk atau Wijilan untuk mendapatkan oleh-oleh paling segar yang baru saja matang dari tungku arang.\n• Di Pasar Beringharjo, Anda bisa menawar harga dengan ramah menggunakan sapaan santun Jawa ('Nuwun sewu, saget kirang mboten?')."
+                    android:textColor="@color/charcoal"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Card 4: Layanan Wisatawan -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_quote_box"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍  Pusat Informasi Wisatawan (TIC)"
+                    android:textColor="@color/terracotta"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Tourist Information Center: Jl. Malioboro No. 56, Yogyakarta. Buka setiap hari 08.00 - 20.00 WIB."
+                    android:textColor="@color/charcoal"
+                    android:textSize="10.5sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Dismiss Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDismissHelp"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="@color/sogan"
+        android:text="@string/guide_btn"
+        android:textColor="@color/gold"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp" />
+</LinearLayout>
+

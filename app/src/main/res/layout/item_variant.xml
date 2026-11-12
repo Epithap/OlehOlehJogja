@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_rounded_box"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <!-- Left accent bar matching Figma -->
+    <View
+        android:id="@+id/variantAccentBar"
+        android:layout_width="4dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_variant_bar" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvVariantTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/charcoal"
+            android:textSize="12.5sp"
+            android:textStyle="bold"
+            tools:text="Kacang Hijau Original" />
+
+        <TextView
+            android:id="@+id/tvVariantDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:lineSpacingExtra="1.5dp"
+            android:textColor="@color/charcoal_secondary"
+            android:textSize="10.5sp"
+            tools:text="Isian paling otentik dengan tekstur lembut dan manis pas." />
+    </LinearLayout>
+</LinearLayout>

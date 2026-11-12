@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Top Sheet Header Bar matching Figma -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sogan"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="12dp">
+
+            <!-- Drag Handle -->
+            <View
+                android:layout_width="44dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_handle" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Category Title (Left) -->
+                <TextView
+                    android:id="@+id/tvDetailCategoryHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:letterSpacing="0.12"
+                    android:textColor="@color/gold"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    tools:text="MAKANAN KERING" />
+
+                <!-- Close Circular Button (Right) -->
+                <FrameLayout
+                    android:id="@+id/btnDetailBack"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_circle_close"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/guide_btn"
+                        android:src="@drawable/ic_clear"
+                        app:tint="@color/white" />
+                </FrameLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Scrollable Content -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
+
+                <!-- Hero Image with Overlays -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:strokeWidth="0dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivDetailImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/app_name"
+                            android:scaleType="centerCrop"
+                            tools:src="@drawable/img_bakpia" />
+
+                        <!-- Dark gradient overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_card_gradient" />
+
+                        <!-- Bookmark button (Top Right of image) -->
+                        <FrameLayout
+                            android:id="@+id/btnDetailBookmark"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/bg_circle_white"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <ImageView
+                                android:id="@+id/ivDetailBookmark"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/bookmark_banner_text"
+                                android:src="@drawable/ic_bookmark_border"
+                                app:tint="@color/sogan" />
+                        </FrameLayout>
+
+                        <!-- Title and Subtitle at bottom of image -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="14dp"
+                            android:paddingBottom="12dp">
+
+                            <TextView
+                                android:id="@+id/tvDetailTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:shadowColor="#CC000000"
+                                android:shadowDx="1"
+                                android:shadowDy="1"
+                                android:shadowRadius="3"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                tools:text="Bakpia Pathok" />
+
+                            <TextView
+                                android:id="@+id/tvDetailSubtitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="#E5FFFFFF"
+                                android:textSize="11sp"
+                                tools:text="Sentra Pathuk, Ngampil, Yogyakarta" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Badges Row matching Figma (scrollable horizontally so tags never squish) -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:layout_marginTop="12dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- Shelf Life Badge -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_shelf"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="11dp"
+                            android:paddingVertical="6dp">
+
+                            <ImageView
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_clock"
+                                app:tint="@color/charcoal_secondary" />
+
+                            <TextView
+                                android:id="@+id/tvDetailBadgeShelf"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColor="@color/charcoal"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                tools:text="3 - 5 Hari" />
+                        </LinearLayout>
+
+                        <!-- Category Badge -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_badge_cat"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="11dp"
+                            android:paddingVertical="6dp">
+
+                            <ImageView
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/ic_tag"
+                                app:tint="@color/gold" />
+
+                            <TextView
+                                android:id="@+id/tvDetailBadgeCat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                tools:text="Makanan Kering" />
+                        </LinearLayout>
+
+                        <!-- Price Range Badge -->
+                        <TextView
+                            android:id="@+id/tvDetailBadgePrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_badge_price"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            tools:text="Rp 25.000 - Rp 45.000" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Tab Headers matching Figma -->
+                <LinearLayout
+                    android:id="@+id/layoutTabHeaders"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp">
+
+                    <TextView
+                        android:id="@+id/tabDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/tab_desc"
+                        android:textColor="@color/terracotta"
+                        android:textSize="11.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tabVariants"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/tab_variants"
+                        android:textColor="@color/charcoal_secondary"
+                        android:textSize="11.5sp" />
+
+                    <TextView
+                        android:id="@+id/tabTips"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/tab_tips"
+                        android:textColor="@color/charcoal_secondary"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <!-- Tab Active Underline Indicator Bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="14dp">
+
+                    <View
+                        android:id="@+id/indicatorDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/terracotta" />
+
+                    <View
+                        android:id="@+id/indicatorVariants"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent" />
+
+                    <View
+                        android:id="@+id/indicatorTips"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider_color" />
+
+                <!-- Tab Panes -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="14dp"
+                    android:paddingTop="14dp">
+
+                    <!-- TAB 1: Deskripsi & Sejarah -->
+                    <LinearLayout
+                        android:id="@+id/paneDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <!-- Story Card -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded_box"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.06"
+                                android:text="CERITA &amp; WARISAN BUDAYA"
+                                android:textColor="@color/charcoal"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvDetailStory"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:lineSpacingExtra="3dp"
+                                android:textColor="@color/charcoal"
+                                android:textSize="11.5sp"
+                                tools:text="Bakpia Pathok adalah kue pastry bulat berlapis isi kacang hijau yang menjadi ikon utama oleh-oleh Jogja." />
+                        </LinearLayout>
+
+                        <!-- Quote Box -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/bg_quote_box"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="14dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif"
+                                android:text="“"
+                                android:textColor="@color/terracotta"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvDetailQuote"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_weight="1"
+                                android:lineSpacingExtra="2dp"
+                                android:textColor="@color/charcoal"
+                                android:textSize="11.5sp"
+                                android:textStyle="italic"
+                                tools:text="&quot;Pilihan utama buah tangan keluarga sejak paruh abad ke-20.&quot;" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- TAB 2: Varian Rasa/Bentuk -->
+                    <LinearLayout
+                        android:id="@+id/paneVariants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Pilih varian favorit yang populer dipesan wisatawan:"
+                            android:textColor="@color/charcoal_secondary"
+                            android:textSize="11.5sp" />
+
+                        <LinearLayout
+                            android:id="@+id/containerVariants"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+
+                    <!-- TAB 3: Packing & Lokasi -->
+                    <LinearLayout
+                        android:id="@+id/paneTips"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!-- Packing Tips Card -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded_box"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.06"
+                                android:text="TIPS PACKING SAFE-TRAVEL"
+                                android:textColor="@color/charcoal"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:id="@+id/containerPackingTips"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:orientation="vertical" />
+                        </LinearLayout>
+
+                        <!-- Locations Card -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/bg_rounded_box"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.06"
+                                android:text="PUSAT &amp; SENTRA PEMBELIAN TERBAIK"
+                                android:textColor="@color/charcoal"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:id="@+id/containerLocations"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:orientation="vertical" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Bottom Action Bar matching Figma exactly -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp">
+
+            <!-- Bagikan Button -->
+            <LinearLayout
+                android:id="@+id/btnShare"
+                android:layout_width="105dp"
+                android:layout_height="42dp"
+                android:background="@drawable/bg_btn_share"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@string/btn_share"
+                    android:src="@drawable/ic_share"
+                    app:tint="@color/charcoal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/btn_share"
+                    android:textColor="@color/charcoal"
+                    android:textSize="11.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Simpan Info Rute Belanja Button -->
+            <LinearLayout
+                android:id="@+id/btnSaveRoute"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_route"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/btn_save_route"
+                    android:src="@drawable/ic_map_folded"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/btn_save_route"
+                    android:textColor="@color/white"
+                    android:textSize="11.5sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

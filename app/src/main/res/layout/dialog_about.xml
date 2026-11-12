@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Header Row (Left-aligned) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_tugu_header" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="@string/app_name"
+                android:textColor="@color/sogan"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="Katalog Digital Warisan Kuliner Jogja v1.0"
+                android:textColor="@color/charcoal_secondary"
+                android:textSize="10.5sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/divider_color" />
+
+    <!-- Content Sections (Left-aligned) -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:maxHeight="380dp"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Card 1: Visi & Misi -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_box"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🏛️  Tentang Aplikasi"
+                    android:textColor="@color/sogan"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="2.5dp"
+                    android:text="OlehOlehJogja adalah panduan digital terkurasi bagi wisatawan dan pelancong untuk menjelajahi kekayaan kuliner tradisional khas Daerah Istimewa Yogyakarta. Aplikasi ini mempermudah pencarian oleh-oleh autentik, memberikan estimasi daya tahan yang akurat, serta memandu rute ke sentra perajin lokal resmi."
+                    android:textColor="@color/charcoal"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Card 2: Filosofi Warna Budaya -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_rounded_box"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎨  Filosofi Palet Budaya"
+                    android:textColor="@color/sogan"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <!-- Color Item 1: Sogan -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:background="@drawable/bg_circle_button"
+                        android:backgroundTint="@color/sogan" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Cokelat Sogan : Kearifan &amp; keteduhan budaya Jawa."
+                        android:textColor="@color/charcoal"
+                        android:textSize="10.5sp" />
+                </LinearLayout>
+
+                <!-- Color Item 2: Emas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:background="@drawable/bg_circle_button"
+                        android:backgroundTint="@color/gold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Emas Keraton : Kemuliaan &amp; sejarah luhur Mataram."
+                        android:textColor="@color/charcoal"
+                        android:textSize="10.5sp" />
+                </LinearLayout>
+
+                <!-- Color Item 3: Terakota -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:background="@drawable/bg_circle_button"
+                        android:backgroundTint="@color/terracotta" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Terakota : Kehangatan bumi &amp; perajin gerabah lokal."
+                        android:textColor="@color/charcoal"
+                        android:textSize="10.5sp" />
+                </LinearLayout>
+
+                <!-- Color Item 4: Krem -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:background="@drawable/bg_circle_button"
+                        android:backgroundTint="@color/gold_light" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Krem Mori : Kesucian kain mori &amp; keramahan warga."
+                        android:textColor="@color/charcoal"
+                        android:textSize="10.5sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Card 3: UMKM -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_quote_box"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🤝  Mendukung UMKM &amp; Kuliner Lokal"
+                    android:textColor="@color/sogan"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="Setiap pembelian oleh-oleh di sentra lokal turut melestarikan warisan resep pusaka dan memberdayakan ribuan keluarga perajin tradisional di Yogyakarta."
+                    android:textColor="@color/charcoal"
+                    android:textSize="10.5sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Dismiss Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDismissAbout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="@color/sogan"
+        android:text="@string/guide_btn"
+        android:textColor="@color/gold"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp" />
+</LinearLayout>
+

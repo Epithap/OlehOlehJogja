@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Oleh - oleh khas Jogja</string>
+    <string name="app_tagline">Warisan Kuliner khas Jogja</string>
+    <string name="search_hint">Cari bakpia, gudeg, batik . . .</string>
+    <string name="cat_all">Semua</string>
+    <string name="cat_basah">Makanan basah</string>
+    <string name="cat_kering">Makanan kering</string>
+    <string name="cat_minuman">Minuman tradisional</string>
+    <string name="nav_explore">Jelajah</string>
+    <string name="nav_popular">Populer</string>
+    <string name="nav_profile">Profile</string>
+    <string name="empty_title">Tidak Ditemukan</string>
+    <string name="empty_desc">Coba kata kunci lain atau ubah kategori filter Anda.</string>
+    <string name="reset_filter">Reset Filter</string>
+    <string name="bookmark_banner_text">Menampilkan item tersimpan (%d)</string>
+    <string name="see_all">Lihat Semua</string>
+    <string name="tab_desc">Deskripsi &amp; Sejarah</string>
+    <string name="tab_variants">Varian Rasa/Bentuk</string>
+    <string name="tab_tips">Packing &amp; Lokasi</string>
+    <string name="btn_share">Bagikan</string>
+    <string name="btn_save_route">Simpan Info Rute Belanja</string>
+    <string name="guide_title">Tentang OlehOlehJogja</string>
+    <string name="guide_desc">Aplikasi katalog digital warisan kuliner khas Yogyakarta untuk memandu wisatawan menemukan oleh-oleh otentik lengkap dengan ketahanan, varian, dan rute lokasi.</string>
+    <string name="guide_palette">Palet: Cokelat Sogan (#54331C), Emas Keraton (#D4A373), Terakota (#C86D51), dan Krem (#F7F3E9).</string>
+    <string name="guide_btn">Tutup</string>
+    <string name="calc_bakpia_unit">~450 gr • Rp 25.000</string>
+    <string name="calc_gudeg_unit">~600 gr • Rp 40.000</string>
+    <string name="calc_yangko_unit">~350 gr • Rp 18.000</string>
+    <string name="calc_wedang_unit">~150 gr • Rp 15.000</string>
+</resources>

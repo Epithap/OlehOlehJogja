@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardSouvenir"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#15442813"
+    app:strokeWidth="0.8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Image Container with Overlays -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="125dp">
+
+            <ImageView
+                android:id="@+id/ivSouvenir"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/img_bakpia" />
+
+            <!-- Dark gradient overlay for text readability -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_card_gradient" />
+
+            <!-- Category Badge (Top Left) -->
+            <TextView
+                android:id="@+id/tvCategoryBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_badge_cat"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="3dp"
+                android:textColor="@color/white"
+                android:textSize="8.5sp"
+                android:textStyle="bold"
+                tools:text="Makanan kering" />
+
+            <!-- Bookmark Quick Action (Top Right) -->
+            <LinearLayout
+                android:id="@+id/layoutQuickActions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <!-- Add to Cart Button -->
+                <FrameLayout
+                    android:id="@+id/btnAddToCart"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:background="@drawable/bg_circle_white"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/ivCartIcon"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="Keranjang"
+                        android:src="@drawable/ic_cart"
+                        app:tint="@color/sogan" />
+                </FrameLayout>
+
+                <!-- Bookmark Quick Action -->
+                <FrameLayout
+                    android:id="@+id/btnQuickBookmark"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_circle_white"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/ivBookmarkIcon"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_bookmark_border"
+                        app:tint="@color/sogan" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Text Overlay at Bottom of Image -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvSouvenirName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:shadowColor="#CC000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:textColor="@color/white"
+                    android:textSize="12.5sp"
+                    android:textStyle="bold"
+                    tools:text="Bakpia Pathok" />
+
+                <TextView
+                    android:id="@+id/tvSouvenirSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="#E5FFFFFF"
+                    android:textSize="8.5sp"
+                    tools:text="Sentra Pathuk, Ngampil, Yogyakarta" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Card Body -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="9dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="9dp">
+
+            <TextView
+                android:id="@+id/tvSouvenirDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingExtra="1.5dp"
+                android:lines="2"
+                android:maxLines="2"
+                android:textColor="@color/charcoal"
+                android:textSize="9.5sp"
+                tools:text="Kue bulat pipih khas Yogyakarta berisi kumbu kacang hijau atau ragam isian modern" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/divider_color" />
+
+            <!-- Bottom Badges Info Row -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Shelf life -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_clock"
+                        app:tint="@color/charcoal_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvShelfLife"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/charcoal_secondary"
+                        android:textSize="8.5sp"
+                        tools:text="3 - 5 Hari" />
+                </LinearLayout>
+
+                <!-- Price -->
+                <TextView
+                    android:id="@+id/tvPriceRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/terracotta"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    tools:text="Rp25.000" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
